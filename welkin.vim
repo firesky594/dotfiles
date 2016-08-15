@@ -41,3 +41,15 @@ set mouse=n
 nmap <C-n> :tabnew<CR>
 imap <C-n><ESC> :tabnew<CR>
 
+"Make the command to see
+set showcmd
+"Make the autocmd to mkview and loadview
+"autocmd BufWinLeave *.* mkview
+"autocmd BufWinEnter *.* silent loadview 
+" Save fold settings.
+autocmd BufWritePost * if expand('%') != '' && &buftype !~ 'nofile' | mkview | endif
+autocmd BufRead * if expand('%') != '' && &buftype !~ 'nofile' | silent loadview | endif
+" Don't save options.
+set viewoptions-=options
+
+
