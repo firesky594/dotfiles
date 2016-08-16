@@ -10,6 +10,7 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'msanders/snipmate.vim'
 Plugin 'The-NERD-tree'
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -35,7 +36,8 @@ imap <F3> <ESC> gg=G <CR>
 
 "Make the undo in the insert mode
 inoremap  <C-U> <ESC> u
-
+"Make showcmd
+set showcmd
 "Make it more comfortable in the GUI version
 set mouse=n
 nmap <C-n> :tabnew<CR>
