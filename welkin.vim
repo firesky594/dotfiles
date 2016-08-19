@@ -47,14 +47,18 @@ cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 " w!! to sudo & write a file
 cmap w!! w !sudo tee >/dev/null %
+" 分屏窗口移动, Smart way to move between windows
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
 
-
+"This is ...Good!!!!
+inoremap kj <Esc>
 "use ; to replace :
 " 复制选中区到系统剪切板中
 vnoremap <leader>y "+y
 
-"This is ...Good!!!!
-inoremap kj <Esc>
 " Map ; to : and save a million keystrokes 用于快速进入命令行
 nnoremap ; :
 "modify the leader for the defualt \
@@ -77,4 +81,30 @@ nnoremap <silent> <Leader>z :ZoomToggle<CR>
 
 
 " To make the cursor center forever type zz or set scrolloff=999
-set scrolloff=999
+"But it is not suit to the copy mode when use cursor select
+"set scrolloff=5
+
+"remap U to <C-r> 
+nnoremap U <C-r>
+
+
+"define the header for the *.py | *.sh | .etc
+autocmd BufNewFile *.sh,*.py exec ":call AutoSetFileHead()"
+function! AutoSetFileHead()
+	if &filetype == 'sh'
+		call setline(1,"\#!/bin/bash")
+	endif
+
+	if &filetype == 'sh'
+		call setline(1,"\#!/usr/bin/env python")
+		call append(1,"\#!encoding: utf-8")
+	endif
+
+	normal G
+	normal o
+	normal o
+endfunc
+" 打开自动定位到最后编辑的位置, 需要确认 .viminfo 当前用户可写
+if has("autocmd")
+	  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
