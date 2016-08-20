@@ -1,0 +1,12 @@
+
+#alias
+alias www='cd /home/wwwroot'
+
+
+#const
+export NLG=/var/log/nginx/error.log
+export NSLG=/var/log/nginx/access.log
+
+
+
+
