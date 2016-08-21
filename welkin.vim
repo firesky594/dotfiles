@@ -10,12 +10,16 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 Plugin 'msanders/snipmate.vim'
 Plugin 'The-NERD-tree'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'vim-scripts/taglist.vim'
 Plugin 'mattn/emmet-vim'
+
+" markdown test
+"Plugin 'godlygeek/tabular'
+"Plugin 'plasticboy/vim-markdown'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -106,7 +110,7 @@ function! AutoSetFileHead()
 		call setline(1,"\#!/bin/bash")
 	endif
 
-	if &filetype == 'sh'
+	if &filetype == 'py'
 		call setline(1,"\#!/usr/bin/env python")
 		call append(1,"\#!encoding: utf-8")
 	endif
@@ -119,3 +123,9 @@ endfunc
 if has("autocmd")
 	  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
+"resize the window quickly 
+nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
+nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
+"resize the window right or left
+nnoremap <silent> <Leader>< :exe "vertical resize +10"<CR>
+nnoremap <silent> <Leader>> :exe "vertical resize -10"<CR>
