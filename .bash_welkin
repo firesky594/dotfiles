@@ -1,6 +1,8 @@
 
 #alias
 alias www='cd /home/wwwroot'
+alias book='vim ~/book.md'
+alias kuurin='ssh root@150.95.131.195'
 
 
 #const

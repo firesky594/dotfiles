@@ -7,3 +7,4 @@ if [ ! -d ~/.vim/bundle ] ; then
 fi
 cp -rf ./.vimrc ~/
 cp -rf ./welkin.vim ~/.vim/
+cp -rf ./_.snippets ~/.vim/bundle/snipmate.vim/snippets/

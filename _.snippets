@@ -1,0 +1,17 @@
+# Global snippets
+
+# (c) holds no legal value ;)
+snippet c)
+	Copyright `&enc[:2] == "utf" ? "©" : "(c)"` `strftime("%Y")` ${1:`g:snips_author`}. All Rights Reserved.${2}
+snippet date
+	`strftime("%Y-%m-%d")`
+snippet ddate
+	`strftime("%B %d, %Y")`
+snippet welkin
+	code is good but not the world of life
+snippet controller
+	namespace App\Http\Controllers\${1:Kuurin};
+	use Illuminate\Http\Request;
+	use App\Http\Requests;
+	use App\Http\Controllers\Controller;
+	${2}
