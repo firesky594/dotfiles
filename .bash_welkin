@@ -3,7 +3,15 @@
 alias www='cd /home/wwwroot'
 alias book='vim ~/book.md'
 alias kuurin='ssh root@150.95.131.195'
-
+alias hs='ssh root@120.25.150.18'
+alias mitu='ssh root@120.77.55.88'
+alias omitu='ssh mitu@115.28.156.111'
+alias jiajiao='ssh root@47.92.69.211'
+alias chyyg='ssh mitu@chkg99.com'
+alias nelog='grep /var/log/nginx/error.log'
+alias nslog='grep /var/log/nginx/access.log'
+#alias docker='proxychains4 sudo docker'
+alias pdocker='proxychains4 sudo docker'
 
 #const
 export NLG=/var/log/nginx/error.log

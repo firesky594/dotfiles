@@ -16,6 +16,22 @@ Plugin 'The-NERD-tree'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'vim-scripts/taglist.vim'
 Plugin 'mattn/emmet-vim'
+" Colorscheme Theme
+Plugin 'nanotech/jellybeans.vim'
+Plugin 'vim-scripts/twilight'
+Plugin 'w0ng/vim-hybrid'
+"Plugin 'macvim-dev/macvim'
+Plugin 'carlhuda/janus'
+Plugin 'sjl/badwolf'
+Plugin 'jpo/vim-railscasts-theme'
+Plugin 'vim-scripts/Wombat'
+Plugin 'tomasr/molokai'
+Plugin 'vim-scripts/rdark'
+" 多光标移动
+Plugin 'terryma/vim-multiple-cursors'
+let g:jellybeans_overrides = {
+			\	'background': { 'ctermbg': 'none', '256ctermbg': 'none' },
+			\}
 
 " markdown test
 Plugin 'godlygeek/tabular'
@@ -112,7 +128,7 @@ function! AutoSetFileHead()
 
 	if &filetype == 'py'
 		call setline(1,"\#!/usr/bin/env python")
-		call append(1,"\#!encoding: utf-8")
+		call append(2,"\#!encoding: utf-8")
 	endif
 
 	normal G
@@ -142,3 +158,13 @@ let showmarks_ignore_type = "hqm"
 let showmarks_hlline_lower = 1
 let showmarks_hlline_upper = 1
 
+" NERDTree setting 
+" auto change the pwd to current floder
+autocmd vimenter * silent! lcd %:p:h
+" vim-multiple-cursors setting
+"let g:multi_cursor_use_default_mapping=0
+" Default mapping
+let g:multi_cursor_next_key='<C-m>'
+let g:multi_cursor_prev_key='<C-l>'
+let g:multi_cursor_skip_key='<C-x>'
+let g:multi_cursor_quit_key='<Esc>'
