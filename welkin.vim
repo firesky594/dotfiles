@@ -20,7 +20,7 @@ Plugin 'mattn/emmet-vim'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'vim-scripts/twilight'
 Plugin 'w0ng/vim-hybrid'
-Plugin 'macvim-dev/macvim'
+" Plugin 'macvim-dev/macvim' //clone too long time 
 Plugin 'carlhuda/janus'
 Plugin 'sjl/badwolf'
 Plugin 'jpo/vim-railscasts-theme'
@@ -151,8 +151,9 @@ nnoremap <silent> <Leader>> :exe "vertical resize -10"<CR>
 
 " NERDTree setting 
 " auto change the pwd to current floder
-autocmd vimenter * silent! lcd %:p:h
-
+" autocmd vimenter * silent! lcd %:p:h
+autocmd vimenter * silent! :NERDTreeFind<CR>
+map <leader>r :NERDTreeFind<CR>
 
 " vim-multiple-cursors setting
 "let g:multi_cursor_use_default_mapping=0
@@ -161,3 +162,42 @@ let g:multi_cursor_next_key='<C-m>'
 let g:multi_cursor_prev_key='<C-l>'
 let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<Esc>'
+
+
+" move line up/donw like sublime 
+function! s:swap_lines(n1, n2)
+	let line1 = getline(a:n1)
+	let line2 = getline(a:n2)
+	call setline(a:n1, line2)
+	call setline(a:n2, line1)
+endfunction
+
+function! s:swap_up()
+	let n = line('.')
+	if n == 1
+		return
+	endif
+
+	call s:swap_lines(n, n - 1)
+	exec n - 1
+endfunction
+
+function! s:swap_down()
+	let n = line('.')
+	if n == line('$')
+		return
+	endif
+
+	call s:swap_lines(n, n + 1)
+	exec n + 1
+endfunction
+
+noremap <silent> <c-s-up> :call <SID>swap_up()<CR>
+noremap <silent> <c-s-down> :call <SID>swap_down()<CR>
+
+
+
+" set the color for the vim 
+" from 2017/4/20 the vim will be the main editor for me at home
+set background=dark
+set t_Co=256 "some case you need to `export TERM='xterm-256color'` for your terminal
