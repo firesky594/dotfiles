@@ -34,8 +34,8 @@ let g:jellybeans_overrides = {
 			\}
 
 " markdown test
-"Plugin 'godlygeek/tabular'
-"Plugin 'plasticboy/vim-markdown'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -145,14 +145,23 @@ nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 "resize the window right or left
 nnoremap <silent> <Leader>< :exe "vertical resize +10"<CR>
 nnoremap <silent> <Leader>> :exe "vertical resize -10"<CR>
-
-
-
+""""""""""""""""""""""""""""""
+" showmarks setting
+""""""""""""""""""""""""""""""
+" Enable ShowMarks
+let showmarks_enable = 1
+" Show which marks
+let showmarks_include = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+" Ignore help, quickfix, non-modifiable buffers
+let showmarks_ignore_type = "hqm"
+" Hilight lower & upper marks
+let showmarks_hlline_lower = 1
+let showmarks_hlline_upper = 1
 
 " NERDTree setting 
 " auto change the pwd to current floder
-" autocmd vimenter * silent! lcd %:p:h
-autocmd vimenter * silent! :NERDTreeFind<CR>
+" autocmd vimenter * silent! :NERDTreeFind<CR>
+autocmd vimenter * silent! lcd %:p:h
 map <leader>r :NERDTreeFind<CR>
 
 " vim-multiple-cursors setting
