@@ -1,4 +1,18 @@
+" ======================= default config ===================== "
 set number
+" To reset the tab and shift 
+filetype plugin indent on
+" show existing tab with 4 spaces width
+set tabstop=4
+" when indenting with '>', use 4 spaces width
+set shiftwidth=4
+" On pressing tab, insert 4 spaces
+set expandtab
+"Make showcmd
+set showcmd
+"Make it more comfortable in the GUI version
+set mouse=n
+" ====================== plugin config ======================= "
 set nocompatible              " be iMproved, required
 filetype off                  " required
 " set the runtime path to include Vundle and initialize
@@ -8,25 +22,17 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'altercation/vim-colors-solarized'
-"Plugin 'Valloric/YouCompleteMe'
-Plugin 'msanders/snipmate.vim'
-Plugin 'The-NERD-tree'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'vim-scripts/taglist.vim'
-Plugin 'mattn/emmet-vim'
+Plugin 'VundleVim/Vundle.vim' " plugin Tools
+"Plugin 'altercation/vim-colors-solarized' "colorscheme
+Plugin 'lifepillar/vim-solarized8'
+"Plugin 'Valloric/YouCompleteMe' " Look Good but not work for me
+Plugin 'msanders/snipmate.vim' " Snipmate
+Plugin 'The-NERD-tree' " FileTree
+Plugin 'ctrlpvim/ctrlp.vim' " C-p to find the file
+Plugin 'vim-scripts/taglist.vim' "Taglist
+Plugin 'mattn/emmet-vim' " The Html quickly snippet
+Plugin 'mileszs/ack.vim' " Alternative grep for programmers
 " Colorscheme Theme
-Plugin 'nanotech/jellybeans.vim'
-Plugin 'vim-scripts/twilight'
-Plugin 'w0ng/vim-hybrid'
-" Plugin 'macvim-dev/macvim' //clone too long time 
-Plugin 'carlhuda/janus'
-Plugin 'sjl/badwolf'
-Plugin 'jpo/vim-railscasts-theme'
-Plugin 'vim-scripts/Wombat'
-Plugin 'tomasr/molokai'
-Plugin 'vim-scripts/rdark'
 " 多光标移动
 Plugin 'terryma/vim-multiple-cursors'
 let g:jellybeans_overrides = {
@@ -39,6 +45,8 @@ Plugin 'plasticboy/vim-markdown'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+" =========================== advanced config ========================== "
 "To do the same with the ctrl+s like others editor to save file 
 "But you need to add 'stty -ixon' to the ~/.bashrc to save the 
 "Comflict with the gnome-terminal
@@ -56,10 +64,6 @@ imap <F3> <ESC> gg=G <CR>
 
 "Make the undo in the insert mode
 inoremap  <C-U> <ESC> u
-"Make showcmd
-set showcmd
-"Make it more comfortable in the GUI version
-set mouse=n
 nmap <C-n> :tabnew<CR>
 imap <C-n><ESC> :tabnew<CR>
 " command mode to set the a-e to the line_head and end
@@ -89,6 +93,7 @@ inoremap kj <Esc>
 "use ; to replace :
 " 复制选中区到系统剪切板中
 vnoremap <leader>y "+y
+map <leader>y "+y
 
 " Map ; to : and save a million keystrokes 用于快速进入命令行
 nnoremap ; :
@@ -204,9 +209,21 @@ endfunction
 noremap <silent> <c-s-up> :call <SID>swap_up()<CR>
 noremap <silent> <c-s-down> :call <SID>swap_down()<CR>
 
+" copy the text from vim to clipboard
+set clipboard=unnamedplus
+set clipboard=unnamed
 
+" set the currnt line to hightlight
+augroup CursorLine
+    au!
+    au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+    au WinLeave * setlocal nocursorline
+augroup END
+" source colorshceme if exist
 
 " set the color for the vim 
 " from 2017/4/20 the vim will be the main editor for me at home
 set background=dark
+hi CursorLine term=none cterm=none ctermbg=112
+hi Normal ctermfg=252 ctermbg=none
 set t_Co=256 "some case you need to `export TERM='xterm-256color'` for your terminal
