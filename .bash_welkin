@@ -1,4 +1,3 @@
-
 #alias
 alias www='cd /home/wwwroot'
 alias book='vim ~/book.md'
@@ -18,5 +17,14 @@ export NLG=/var/log/nginx/error.log
 export NSLG=/var/log/nginx/access.log
 
 
+#command alias
+alias wcat='function wcat(){ cat $* |egrep -v "^#";};wcat'
+alias test='test'
 
 
+
+#function 
+function test()
+{
+  echo "test function,your args are $*";
+}

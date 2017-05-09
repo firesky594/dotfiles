@@ -24,7 +24,7 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim' " plugin Tools
 "Plugin 'altercation/vim-colors-solarized' "colorscheme
-Plugin 'lifepillar/vim-solarized8'
+"Plugin 'lifepillar/vim-solarized8'
 "Plugin 'Valloric/YouCompleteMe' " Look Good but not work for me
 Plugin 'msanders/snipmate.vim' " Snipmate
 Plugin 'The-NERD-tree' " FileTree
@@ -64,6 +64,19 @@ imap <F3> <ESC> gg=G <CR>
 
 "Make the undo in the insert mode
 inoremap  <C-U> <ESC> u
+" tabview  
+nmap <leader>1 1gt
+nmap <leader>2 2gt
+nmap <leader>3 3gt
+nmap <leader>4 4gt
+nmap <leader>5 5gt
+nmap <leader>6 6gt
+nmap <leader>7 7gt
+nmap <leader>8 8gt
+nmap <leader>9 9gt
+nmap <leader>0 10gt
+nmap <leader>n gt
+nmap <leader>m gT
 nmap <C-n> :tabnew<CR>
 imap <C-n><ESC> :tabnew<CR>
 " command mode to set the a-e to the line_head and end
@@ -132,8 +145,8 @@ function! AutoSetFileHead()
 	endif
 
 	if &filetype == 'py'
-		call setline(1,"\#!/usr/bin/env python")
-		call append(2,"\#!encoding: utf-8")
+		call append("\#!/usr/bin/env python")
+		call append("\#!encoding: utf-8")
 	endif
 
 	normal G
@@ -210,8 +223,11 @@ noremap <silent> <c-s-up> :call <SID>swap_up()<CR>
 noremap <silent> <c-s-down> :call <SID>swap_down()<CR>
 
 " copy the text from vim to clipboard
+" yank and paste
 set clipboard=unnamedplus
 set clipboard=unnamed
+nmap <leader>c "+y
+nmap <leader>v "+gp
 
 " set the currnt line to hightlight
 augroup CursorLine
@@ -224,6 +240,6 @@ augroup END
 " set the color for the vim 
 " from 2017/4/20 the vim will be the main editor for me at home
 set background=dark
-hi CursorLine term=none cterm=none ctermbg=112
+hi CursorLine term=none cterm=none ctermbg=none
 hi Normal ctermfg=252 ctermbg=none
 set t_Co=256 "some case you need to `export TERM='xterm-256color'` for your terminal
