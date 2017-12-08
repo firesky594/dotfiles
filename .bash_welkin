@@ -16,11 +16,9 @@ alias pdocker='proxychains4 sudo docker'
 export NLG=/var/log/nginx/error.log
 export NSLG=/var/log/nginx/access.log
 
-
 #command alias
 alias wcat='function wcat(){ cat $* |egrep -v "^#";};wcat'
 alias test='test'
-
 
 
 #function 
