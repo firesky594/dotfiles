@@ -6,7 +6,6 @@ alias hs='ssh root@120.25.150.18'
 alias mitu='ssh root@120.77.55.88'
 alias omitu='ssh mitu@115.28.156.111'
 alias jiajiao='ssh root@47.92.69.211'
-alias chyyg='ssh mitu@chkg99.com'
 alias nelog='grep /var/log/nginx/error.log'
 alias nslog='grep /var/log/nginx/access.log'
 #alias docker='proxychains4 sudo docker'
@@ -26,3 +25,8 @@ function test()
 {
   echo "test function,your args are $*";
 }
+
+#work connect
+alias ch_admin='ssh root@39.108.51.243';
+alias yy_admin='ssh root@119.23.59.90';
+alias lmkj='ssh root@119.23.213.123';

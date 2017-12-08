@@ -26,6 +26,7 @@ Plugin 'VundleVim/Vundle.vim' " plugin Tools
 "Plugin 'altercation/vim-colors-solarized' "colorscheme
 "Plugin 'lifepillar/vim-solarized8'
 "Plugin 'Valloric/YouCompleteMe' " Look Good but not work for me
+Plugin 'posva/vim-vue'
 Plugin 'msanders/snipmate.vim' " Snipmate
 Plugin 'The-NERD-tree' " FileTree
 Plugin 'ctrlpvim/ctrlp.vim' " C-p to find the file
@@ -243,3 +244,9 @@ set background=dark
 hi CursorLine term=none cterm=none ctermbg=none
 hi Normal ctermfg=252 ctermbg=none
 set t_Co=256 "some case you need to `export TERM='xterm-256color'` for your terminal
+
+
+" vim-vue Plugin Setting
+autocmd FileType vue syntax sync fromstart
+autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
+
