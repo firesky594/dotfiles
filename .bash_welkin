@@ -11,9 +11,11 @@ alias nslog='grep /var/log/nginx/access.log'
 #alias docker='proxychains4 sudo docker'
 alias pdocker='proxychains4 sudo docker'
 
-#const
-export NLG=/var/log/nginx/error.log
-export NSLG=/var/log/nginx/access.log
+#work connect
+alias ch_admin='ssh root@39.108.51.243';
+alias yy_admin='ssh root@119.23.59.90';
+alias lmkj='ssh root@119.23.213.123';
+
 
 #command alias
 alias wcat='function wcat(){ cat $* |egrep -v "^#";};wcat'
@@ -26,7 +28,3 @@ function test()
   echo "test function,your args are $*";
 }
 
-#work connect
-alias ch_admin='ssh root@39.108.51.243';
-alias yy_admin='ssh root@119.23.59.90';
-alias lmkj='ssh root@119.23.213.123';
