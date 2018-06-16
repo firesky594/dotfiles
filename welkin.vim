@@ -34,12 +34,6 @@ Plugin 'vim-scripts/taglist.vim' "Taglist
 Plugin 'mattn/emmet-vim' " The Html quickly snippet
 Plugin 'mileszs/ack.vim' " Alternative grep for programmers
 " Colorscheme Theme
-" 多光标移动
-Plugin 'terryma/vim-multiple-cursors'
-let g:jellybeans_overrides = {
-			\	'background': { 'ctermbg': 'none', '256ctermbg': 'none' },
-			\}
-
 " markdown test
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
