@@ -26,17 +26,12 @@ Plugin 'VundleVim/Vundle.vim' " plugin Tools
 "Plugin 'altercation/vim-colors-solarized' "colorscheme
 "Plugin 'lifepillar/vim-solarized8'
 "Plugin 'Valloric/YouCompleteMe' " Look Good but not work for me
-Plugin 'posva/vim-vue'
 Plugin 'msanders/snipmate.vim' " Snipmate
 Plugin 'The-NERD-tree' " FileTree
 Plugin 'ctrlpvim/ctrlp.vim' " C-p to find the file
 Plugin 'vim-scripts/taglist.vim' "Taglist
 Plugin 'mattn/emmet-vim' " The Html quickly snippet
 Plugin 'mileszs/ack.vim' " Alternative grep for programmers
-" Colorscheme Theme
-" markdown test
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
