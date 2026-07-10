@@ -26,12 +26,23 @@ Plugin 'VundleVim/Vundle.vim' " plugin Tools
 "Plugin 'altercation/vim-colors-solarized' "colorscheme
 "Plugin 'lifepillar/vim-solarized8'
 "Plugin 'Valloric/YouCompleteMe' " Look Good but not work for me
+Plugin 'posva/vim-vue'
 Plugin 'msanders/snipmate.vim' " Snipmate
 Plugin 'The-NERD-tree' " FileTree
 Plugin 'ctrlpvim/ctrlp.vim' " C-p to find the file
 Plugin 'vim-scripts/taglist.vim' "Taglist
 Plugin 'mattn/emmet-vim' " The Html quickly snippet
 Plugin 'mileszs/ack.vim' " Alternative grep for programmers
+" Colorscheme Theme
+" 多光标移动
+Plugin 'terryma/vim-multiple-cursors'
+let g:jellybeans_overrides = {
+			\	'background': { 'ctermbg': 'none', '256ctermbg': 'none' },
+			\}
+
+" markdown test
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -79,6 +90,11 @@ map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
+" 终端模式下：使用 Ctrl + h/j/k/l 直接跳出终端
+tnoremap <C-h> <C-W>:wincmd h<CR>
+tnoremap <C-l> <C-W>:wincmd l<CR>
+tnoremap <C-j> <C-W>:wincmd j<CR>
+tnoremap <C-k> <C-W>:wincmd k<CR>
 
 "Make the command to see
 set showcmd
@@ -238,4 +254,15 @@ set t_Co=256 "some case you need to `export TERM='xterm-256color'` for your term
 " vim-vue Plugin Setting
 autocmd FileType vue syntax sync fromstart
 autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
+au BufRead,BufNewFile *.html.twig set filetype=html
+
+" 2026/10/07 write
+" 1. 先兼容传统的标准映射（某些终端可以用）
+nnoremap <C-Left>  :tabprevious<CR>
+nnoremap <C-Right> :tabnext<CR>
+
+" 2. 核心补丁：直接拦截终端传过来的原生键盘转义码 (xterm / tmux 适用)
+" \^[ 对应键盘上的 Esc
+nnoremap <Esc>[1;5D :tabprevious<CR>
+nnoremap <Esc>[1;5C :tabnext<CR>
 
